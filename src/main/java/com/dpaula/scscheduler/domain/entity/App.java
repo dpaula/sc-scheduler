@@ -20,7 +20,6 @@ import java.util.UUID;
 public class App {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String name;
     private String address;
