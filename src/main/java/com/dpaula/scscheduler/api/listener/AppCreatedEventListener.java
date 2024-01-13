@@ -21,7 +21,7 @@ public class AppCreatedEventListener implements Consumer<AppModel> {
 
     @Override
     public void accept(AppModel appModel) {
-        log.info("App criado " + appModel.getId());
+        log.info("App criado recebido " + appModel.getId());
 
         final var app = App.builder()
                 .id(appModel.getId())
@@ -29,6 +29,7 @@ public class AppCreatedEventListener implements Consumer<AppModel> {
                 .address(appModel.getAddress())
                 .build();
 
-        apps.saveAndFlush(app);
+        final var app1 = apps.saveAndFlush(app);
+        log.info("App criado " + app1);
     }
 }

@@ -53,13 +53,17 @@ public class ScheduleController {
 
     @GetMapping("/{scheduleId}")
     public ScheduleModel getById(@PathVariable UUID scheduleId) {
-        Schedule schedule = schedules.findById(scheduleId).orElseThrow(ScheduleNotFoundException::new);
+        Schedule schedule = schedules.findById(scheduleId)
+                .orElseThrow(ScheduleNotFoundException::new);
+
         return mapper.map(schedule, ScheduleModel.class);
     }
 
     @GetMapping
     public List<ScheduleModel> getAll() {
-        return schedules.findAll().stream().map(schedule -> mapper.map(schedule, ScheduleModel.class)).toList();
+        return schedules.findAll().stream()
+                .map(schedule -> mapper.map(schedule, ScheduleModel.class))
+                .toList();
     }
 
     private Schedule toDomain(ScheduleCreateRequest request) {
@@ -88,7 +92,8 @@ public class ScheduleController {
     }
 
     private App findAppById(UUID appId) {
-        return apps.findById(appId).orElseThrow(AppNotFoundException::new);
+        return apps.findById(appId)
+                .orElseThrow(AppNotFoundException::new);
     }
 
 }

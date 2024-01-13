@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 import org.apache.commons.lang3.Validate;
 
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Builder
+@ToString(of = {"id", "name", "address"})
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class App {
 

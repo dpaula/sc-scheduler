@@ -22,7 +22,7 @@ public class AppUpdatedEventListener implements Consumer<AppModel> {
 
     @Override
     public void accept(AppModel appModel) {
-        log.info("App atualizado " + appModel.getId());
+        log.info("App atualizado recebido " + appModel.getId());
 
         final var appBase = apps.findById(appModel.getId())
                 .orElseThrow(AppNotFoundException::new);

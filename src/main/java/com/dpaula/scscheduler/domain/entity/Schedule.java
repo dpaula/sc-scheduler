@@ -25,7 +25,7 @@ public class Schedule {
     private Integer runInterval;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "app_id", columnDefinition = "char(36)")
+    @JoinColumn
     private App app;
 
     protected Schedule() {
